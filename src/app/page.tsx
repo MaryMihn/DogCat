@@ -33,7 +33,7 @@ async function getCatData() {
     {
       headers: {
         "Content-Type": "application/json",
-        "x-api-key":process.env.NEXT_PUBLIC_CAT_API_KEY || "",
+        "x-api-key":"live_ntdtGxer9Zl9PEuoHCHDmjBBcvQTsUoWKGE4xdm9yV3R0wotFFfhIFQkNsjZXlkA",
       },
     }
   );
@@ -48,8 +48,7 @@ async function getDogData() {
     {
       headers: {
         "Content-Type": "application/json",
-        "x-api-key":
-        process.env.NEXT_PUBLIC_DOG_API_KEY || "",
+        "x-api-key":"live_CPu7H5IqaVwWjteOz6BmCdGm9vjhGikIVXoW32U0dc1uYcwAWQiJMj8wIMeerlY0",
       },
     }
   );
