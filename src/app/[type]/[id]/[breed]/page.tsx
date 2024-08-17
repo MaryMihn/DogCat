@@ -42,7 +42,7 @@ async function fetchAnimalData(id: string, type: string): Promise<CatOrDog> {
   const response = await fetch(`${url}/${id}`, {
     headers: {
       "Content-Type": "application/json",
-      "x-api-key": key,
+      "x-api-key": key || "",
     },
   });
 
@@ -71,7 +71,7 @@ async function fetchBreedData(
   const response = await fetch(`${url}${breed}`, {
     headers: {
       "Content-Type": "application/json",
-      "x-api-key": key,
+      "x-api-key": key || "",
     },
   });
 

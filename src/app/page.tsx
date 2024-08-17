@@ -33,7 +33,7 @@ async function getCatData() {
     {
       headers: {
         "Content-Type": "application/json",
-        "x-api-key":process.env.NEXT_PUBLIC_CAT_API_KEY,
+        "x-api-key":process.env.NEXT_PUBLIC_CAT_API_KEY || "",
       },
     }
   );
@@ -49,7 +49,7 @@ async function getDogData() {
       headers: {
         "Content-Type": "application/json",
         "x-api-key":
-        process.env.NEXT_PUBLIC_DOG_API_KEY,
+        process.env.NEXT_PUBLIC_DOG_API_KEY || "",
       },
     }
   );
