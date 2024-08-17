@@ -35,7 +35,7 @@ async function getCatData() {
         "Cache-Control": "no-cache, no-store, must-revalidate",
         "Content-Type": "application/json",
         "x-api-key":
-          "live_ntdtGxer9Zl9PEuoHCHDmjBBcvQTsUoWKGE4xdm9yV3R0wotFFfhIFQkNsjZXlkA",
+        process.env.NEXT_PUBLIC_CAT_API_KEY || "",
       },
     }
   );
@@ -52,7 +52,7 @@ async function getDogData() {
         "Content-Type": "application/json",
         "Cache-Control": "no-cache, no-store, must-revalidate",
         "x-api-key":
-          "live_CPu7H5IqaVwWjteOz6BmCdGm9vjhGikIVXoW32U0dc1uYcwAWQiJMj8wIMeerlY0",
+        process.env.NEXT_PUBLIC_DOG_API_KEY || "",
       },
     }
   );
