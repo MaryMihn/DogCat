@@ -26,6 +26,8 @@ export interface CatOrDog {
   type?: string;
 }
 
+export const fetchCache = 'force-no-store';
+
 async function getCatData() {
   const randomParam = new Date().getTime();
   const response = await fetch(

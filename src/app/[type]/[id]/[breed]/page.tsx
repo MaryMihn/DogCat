@@ -28,6 +28,8 @@ interface Breed {
   reference_image_id: string;
 }
 
+export const fetchCache = 'force-no-store';
+
 async function fetchAnimalData(id: string, type: string): Promise<CatOrDog> {
   const url =
     type === "cat"
@@ -43,6 +45,7 @@ async function fetchAnimalData(id: string, type: string): Promise<CatOrDog> {
     headers: {
       "Content-Type": "application/json",
       "x-api-key": key || "",
+      "Cache-Control": "no-cache, no-store, must-revalidate",
     },
   });
 
@@ -72,6 +75,7 @@ async function fetchBreedData(
     headers: {
       "Content-Type": "application/json",
       "x-api-key": key || "",
+      "Cache-Control": "no-cache, no-store, must-revalidate",
     },
   });
 
