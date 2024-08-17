@@ -38,8 +38,8 @@ async function fetchAnimalData(id: string, type: string): Promise<CatOrDog> {
 
       const key =
       type === "cat"
-        ? "live_ntdtGxer9Zl9PEuoHCHDmjBBcvQTsUoWKGE4xdm9yV3R0wotFFfhIFQkNsjZXlkA"
-        : "live_CPu7H5IqaVwWjteOz6BmCdGm9vjhGikIVXoW32U0dc1uYcwAWQiJMj8wIMeerlY0";
+        ? process.env.NEXT_PUBLIC_CAT_API_KEY || ""
+        : process.env.NEXT_PUBLIC_DOG_API_KEY || "";
 
   const response = await fetch(`${url}/${id}`, {
     headers: {
@@ -68,8 +68,8 @@ async function fetchBreedData(
 
   const key =
     type === "cat"
-      ? "live_ntdtGxer9Zl9PEuoHCHDmjBBcvQTsUoWKGE4xdm9yV3R0wotFFfhIFQkNsjZXlkA"
-      : "live_CPu7H5IqaVwWjteOz6BmCdGm9vjhGikIVXoW32U0dc1uYcwAWQiJMj8wIMeerlY0";
+      ? process.env.NEXT_PUBLIC_CAT_API_KEY || ""
+      : process.env.NEXT_PUBLIC_DOG_API_KEY || "";
 
   const response = await fetch(`${url}${breed}`, {
     headers: {
