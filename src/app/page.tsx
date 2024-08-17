@@ -23,7 +23,7 @@ export interface CatOrDog {
   height: number;
   url: string;
   breeds: Breed[];
-  type?: string
+  type?: string;
 }
 
 async function getCatData() {
@@ -32,13 +32,15 @@ async function getCatData() {
     `https://api.thecatapi.com/v1/images/search?limit=4&has_breeds=true"&random=${randomParam}`,
     {
       headers: {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
         "Content-Type": "application/json",
-        "x-api-key":"live_ntdtGxer9Zl9PEuoHCHDmjBBcvQTsUoWKGE4xdm9yV3R0wotFFfhIFQkNsjZXlkA",
+        "x-api-key":
+          "live_ntdtGxer9Zl9PEuoHCHDmjBBcvQTsUoWKGE4xdm9yV3R0wotFFfhIFQkNsjZXlkA",
       },
     }
   );
   const data = await response.json();
-  return data.map((item: CatOrDog) => ({ ...item, type: 'cat' }));
+  return data.map((item: CatOrDog) => ({ ...item, type: "cat" }));
 }
 
 async function getDogData() {
@@ -48,13 +50,15 @@ async function getDogData() {
     {
       headers: {
         "Content-Type": "application/json",
-        "x-api-key":"live_CPu7H5IqaVwWjteOz6BmCdGm9vjhGikIVXoW32U0dc1uYcwAWQiJMj8wIMeerlY0",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "x-api-key":
+          "live_CPu7H5IqaVwWjteOz6BmCdGm9vjhGikIVXoW32U0dc1uYcwAWQiJMj8wIMeerlY0",
       },
     }
   );
   const data = await response.json();
 
- return data.map((item: CatOrDog) => ({ ...item, type: 'dog' }));;
+  return data.map((item: CatOrDog) => ({ ...item, type: "dog" }));
 }
 
 export default async function Home() {
@@ -66,9 +70,9 @@ export default async function Home() {
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
       {animals.map((animal: CatOrDog) => (
         <Link
-        href={`/${animal.type}/${animal.id}/${animal.breeds?.[0]?.id || ""}`}
-        key={animal.id}
-      >
+          href={`/${animal.type}/${animal.id}/${animal.breeds?.[0]?.id || ""}`}
+          key={animal.id}
+        >
           <Card key={animal.id}>
             <Image
               src={animal.url}
@@ -79,16 +83,16 @@ export default async function Home() {
               priority
             />
             <CardHeader>
-              <CardTitle>{animal.breeds?.[0]?.name || "Unknown Breed"}</CardTitle>
+              <CardTitle>
+                {animal.breeds?.[0]?.name || "Unknown Breed"}
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p>
                 {animal.breeds?.[0]?.temperament || "Temperament not available"}
               </p>
 
-              <p>
-                {animal.breeds?.[0]?.id || "Temperament not available"}
-              </p>
+              <p>{animal.breeds?.[0]?.id || "Temperament not available"}</p>
             </CardContent>
           </Card>
         </Link>
